@@ -7,7 +7,9 @@ interface GlobalEventHandlersEventMap {
 
 declare class Document {
     elements: Record<string, Element>
+    
     constructor(options?: any);
+
     destroy(isSubDestroy: any, noDraw?: boolean): void;
     assignId(element: any, id: any): void;
     unassignId(element: any, id: any): void;
@@ -86,8 +88,8 @@ declare class Element extends EventEmitter {
     ascendantDraw(): this;
     drawCursor(): this;
     bindKey(key: any, action: any): void;
-    getKeyBinding(key: any): any;
-    getKeyBindings(key: any): {};
+    getKeyBinding(key: any): string;
+    getKeyBindings(key: any): Record<string,string>;
     getActionBinding(action: any, ui?: boolean): any[];
     getValue(): unknown;
     // setValue(): undefined;
@@ -113,30 +115,43 @@ declare class Layout extends Element {
     drawRow(computed: any, tees: any, last: any): void;
 }
 
+interface TextOptions extends ElementOptions {
+    attr: Partial<Attr>;
+    leftPadding: string;
+    rightPadding: string;
+}
+declare class Text extends Element {
+    constructor(options: Partial<TextOptions>);
+    computeRequiredWidth(): any;
+    computeRequiredHeight(): any;
+    resizeOnContent(): void;
+    postDrawSelf(): this | undefined;
+}
+
+interface AnimatedTextOptions extends TextOptions  {
+    animation: string|string[];
+    frameDuration: number;
+    animationSpeed: number;
+    frame: number;
+}
+
 declare class AnimatedText extends Text {
-    animation: any;
+    animation: string|string[];;
     isAnimated: boolean;
-    frameDuration: any;
-    animationSpeed: any;
-    frame: any;
+    frameDuration: number;
+    animationSpeed: number;
+    frame: number;
     autoUpdateTimer: number | null;
-    autoUpdate: any;
     inlineCursorRestoreAfterDraw: boolean;
     content: any;
 
-    constructor(options: any);
+    constructor(options: Partial<AnimatedTextOptions>);
 
     animate(animationSpeed?: number): void;
+    private autoUpdate();
 }
 
 declare class Slider extends Element {
-
-    constructor(options: any);
-
-    // onClick: () => void;
-    // onDrag: () => void;
-    // onWheel: () => void;
-    // onButtonSubmit: () => void;
 
     isVertical: boolean;
     slideRate: number;
@@ -173,11 +188,18 @@ declare class Slider extends Element {
         ENTER: string;
         KP_ENTER: string;
     };
+
+    constructor(options: any);
+
     private initChildren(): void;
     private preDrawSelf(): void;
     private preDrawSelfVertical(): void;
     private preDrawSelfHorizontal(): void;
     private postDrawSelf(): void;
+    private onClick(): void;
+    private onDrag(): void;
+    private onWheel(): void;
+    private onButtonSubmit(): void;
 
     setSizeAndPosition(options: any): void;
     computeHandleOffset(): void;
@@ -190,19 +212,9 @@ declare class Slider extends Element {
 
 }
 
-declare class Text extends Element {
-    constructor(options: Partial<TextOptions>);
-    computeRequiredWidth(): any;
-    computeRequiredHeight(): any;
-    resizeOnContent(): void;
-    postDrawSelf(): this | undefined;
-}
 
 declare class TextBox extends Element {
-    // onClick: any;
-    // onDrag: any;
-    // onWheel: any;
-    // keyBindings: any;
+    keyBindings: Record<string, string>;
 
     textAttr: Attr;
     altTextAttr: Attr;
@@ -236,6 +248,9 @@ declare class TextBox extends Element {
     constructor(options: Partial<TextBoxOptions>);
 
     private initChildren(): void;
+    private onClick(): void;
+    private onDrag(): void;
+    private onWheel(): void;
 
     onParentResize(): void;
     setSizeAndPosition(options: any): void;
@@ -362,15 +377,11 @@ interface LayoutElement {
     rows?: Array<LayoutElement>
 }
 
-interface TextOptions extends ElementOptions {
-    attr: Partial<Attr>;
-    leftPadding: string;
-    rightPadding: string;
-}
+
 
 interface TextBoxOptions extends ElementOptions, ScrollableOptions {
 
-    // keyBindings?: any;
+    keyBindings?: any;
     textAttr: Partial<Attr>;
     altTextAttr: Partial<Attr>;
     voidAttr: Partial<Attr>;
