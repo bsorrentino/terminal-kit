@@ -1,4 +1,5 @@
 import EventEmitter = require("nextgen-events");
+import { Document } from "./documents";
 
 type Terminal = Terminal.Impl & EventEmitter;
 
@@ -351,6 +352,8 @@ declare namespace Terminal {
                 } | undefined;
             },
         ): Promise<void>;
+        
+        createDocument(): Document;    
     }
 
     interface ChainableInterface<T> {

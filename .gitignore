@@ -52,4 +52,5 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-
+#
+generated_types/
