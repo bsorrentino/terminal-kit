@@ -4,6 +4,7 @@ import ScreenBufferHD = require("./ScreenBufferHD");
 import Terminal = require("./Terminal");
 import TextBuffer = require("./TextBuffer");
 
+
 export const terminal: Terminal;
 
 export const realTerminal: Terminal;
@@ -34,4 +35,14 @@ export function stringWidth(str: string): number;
 
 export function truncateString(str: string, maxWidth: number): string;
 
-export { Rect, ScreenBuffer, ScreenBufferHD, Terminal, TextBuffer };
+export { 
+    Rect, 
+    ScreenBuffer, 
+    ScreenBufferHD, 
+    Terminal, 
+    TextBuffer,
+};
+
+// Documement Objects
+export * from './documents'
+
