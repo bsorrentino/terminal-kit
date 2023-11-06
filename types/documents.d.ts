@@ -129,7 +129,7 @@ declare class Text extends Element {
 }
 
 interface AnimatedTextOptions extends TextOptions  {
-    animation: string|string[];
+    animation: Terminal.AnimationOption;
     frameDuration: number;
     animationSpeed: number;
     frame: number;
