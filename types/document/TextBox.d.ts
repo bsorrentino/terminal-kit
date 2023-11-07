@@ -1,4 +1,4 @@
-import { ElementOptions, ScrollableOptions } from "./Element";
+import { ElementOptions, ScrollableOptions, Attr } from "./Element";
 import { Slider } from "./Slider";
 
 interface TextBoxOptions extends ElementOptions, ScrollableOptions {

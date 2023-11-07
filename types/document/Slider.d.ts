@@ -1,5 +1,5 @@
 import { Button } from "./Button";
-import { ElementOptions } from "./Element";
+import { ElementOptions, Attr } from "./Element";
 
 interface SliderOptions extends ElementOptions {
 }

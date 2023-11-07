@@ -1,4 +1,4 @@
-import { Bindings, ElementOptions } from "./Element";
+import { Bindings, ElementOptions, Attr } from "./Element";
 
 interface ButtonOptions extends ElementOptions {
     leftPadding: string;

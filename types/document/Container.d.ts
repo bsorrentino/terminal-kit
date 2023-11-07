@@ -1,4 +1,4 @@
-import { Element, ElementOptions, ScrollableOptions } from './Element'
+import { Element, ElementOptions, ScrollableOptions, Attr } from './Element'
 
 interface ContainerOptions extends ElementOptions, ScrollableOptions {
     inputX:number ;
@@ -26,12 +26,12 @@ declare class Container extends Element {
     vScrollBarSlider: any;
     hScrollBarSlider: any;
     movable: boolean;
-    viewportX: any;
-    viewportY: any;
+    viewportX: number;
+    viewportY: number;
     viewportWidth: number;
     viewportHeight: number;
     deltaDraw: boolean;
-    backgroundAttr: any;
+    backgroundAttr: Partial<Attr>;
     isContainer: boolean;
     containerBorderSize: number;
 
