@@ -1,6 +1,7 @@
-import { Bindings, ElementOptions, Attr } from "./Element";
+import { Bindings, Attr } from "./Element";
+import { TextOptions, Text } from "./Text";
 
-interface ButtonOptions extends ElementOptions {
+interface ButtonOptions extends TextOptions {
     leftPadding: string;
     rightPadding: string;
 
