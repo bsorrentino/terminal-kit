@@ -1,5 +1,5 @@
-import EventEmitter = require("nextgen-events");
-import { Document } from "./documents";
+import EventEmitter from 'nextgen-events'
+import { Document } from "./document/Document";
 
 type Terminal = Terminal.Impl & EventEmitter;
 
