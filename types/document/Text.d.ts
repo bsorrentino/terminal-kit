@@ -1,4 +1,4 @@
-import { ElementOptions, Attr } from "./Element";
+import { Element, ElementOptions, Attr } from "./Element";
 
 interface TextOptions extends ElementOptions {
     attr: Partial<Attr>;

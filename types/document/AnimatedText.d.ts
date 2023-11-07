@@ -1,5 +1,5 @@
 import Terminal from "../Terminal";
-import { TextOptions } from "./Text";
+import { Text, TextOptions } from "./Text";
 
 interface AnimatedTextOptions extends TextOptions  {
     animation: Terminal.AnimationOption;

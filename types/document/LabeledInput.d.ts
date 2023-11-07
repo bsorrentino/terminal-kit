@@ -1,5 +1,5 @@
 import { EditableTextBox } from "./EditableTextBox";
-import { Bindings, ElementOptions, ScrollableOptions, Attr } from "./Element";
+import { Element, Bindings, ElementOptions, ScrollableOptions, Attr } from "./Element";
 
 interface LabeledInputOptions extends ElementOptions, ScrollableOptions {
     hiddenContent: boolean;

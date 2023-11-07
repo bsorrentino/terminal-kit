@@ -1,5 +1,5 @@
 import { BuiltinBorder, CustomBorderObject } from "../Terminal";
-import { ElementOptions } from "./Element";
+import { Element, ElementOptions } from "./Element";
 
 interface LayoutOptions extends ElementOptions {
     boxChars: CustomBorderObject | BuiltinBorder;
