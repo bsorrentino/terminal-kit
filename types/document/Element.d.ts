@@ -138,7 +138,7 @@ declare class Element extends EventEmitter {
     topZ(): any;
     bottomZ(): any;
     restoreZ(): any;
-    setContent(content: any, hasMarkup: any, dontDraw?: boolean, dontResize?: boolean): void;
+    setContent(content: unknown, hasMarkup?: boolean, dontDraw?: boolean, dontResize?: boolean): void;
     isAncestorOf(element: any): boolean;
     getParentContainer(): any;
     getFocusBranchIndex(): any;

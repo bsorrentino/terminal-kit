@@ -353,7 +353,7 @@ declare namespace Terminal {
             },
         ): Promise<void>;
         
-        createDocument(): Document;    
+        createDocument( options?: Record<string,any> ): Document;    
     }
 
     interface ChainableInterface<T> {

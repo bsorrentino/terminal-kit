@@ -45,6 +45,7 @@ export {
 
 // Documement Objects
 export * from './document/AnimatedText'
+export * from './document/Box'
 export * from './document/Button'
 export * from './document/Container'
 export * from './document/Document'
