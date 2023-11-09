@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env npx tsx
 /*
 	Terminal Kit
 
@@ -26,19 +26,14 @@
 */
 
 "use strict" ;
-
-
-
-const termkit = require( '../..' ) ;
+import termkit from '../..' ;
 const term = termkit.terminal ;
-
-
 
 term.clear() ;
 
-var document = term.createDocument( { palette: new termkit.Palette() } ) ;
+const document = term.createDocument( { palette: new termkit.Palette() } ) ;
 
-var columnMenu = new termkit.ColumnMenu( {
+const columnMenu = new termkit.ColumnMenu( {
 	parent: document ,
 	x: 10 ,
 	y: 5 ,
@@ -112,9 +107,7 @@ var columnMenu = new termkit.ColumnMenu( {
 	]
 } ) ;
 
-
-
-var border = new termkit.Border( {
+const border = new termkit.Border( {
 	parent: columnMenu ,
 	shadow: true ,
 	//shadowAttr: { bgColor: 'black' } ,

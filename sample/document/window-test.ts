@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env npx tsx
 
 "use strict" ;
 
@@ -27,6 +27,7 @@ const window = new termkit.Window( {
 
 } ) ;
 
+
 const content = () => { 
 	let result =  [
 		'This is the window content...' ,
@@ -46,9 +47,10 @@ new termkit.Text( {
 	attr: { color: 'green' , italic: true }
 } ) ;
 
+
 term.moveTo( 1 , 1 ) ;
 
-term.on( 'key' , function( key ) {
+term.on( 'key' , ( key:string ) => {
 	if ( key === 'CTRL_C' ) {
 		term.grabInput( false ) ;
 		//term.hideCursor( false ) ;

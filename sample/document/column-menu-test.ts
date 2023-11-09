@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env npx tsx
 /*
 	Terminal Kit
 
@@ -27,24 +27,24 @@
 
 "use strict" ;
 
-
-
-const termkit = require( '../..' ) ;
+import termkit from '../..' ;
 const term = termkit.terminal ;
-
-
 
 term.clear() ;
 
-var document = term.createDocument( { palette: new termkit.Palette() } ) ;
+const document = term.createDocument( { palette: new termkit.Palette() } ) ;
 
-var columnMenu = new termkit.ColumnMenu( {
+const columnMenu = new termkit.ColumnMenu( {
 	parent: document ,
-	x: 10 ,
+	x: 0 ,
 	y: 5 ,
 	width: 20 ,
 	pageMaxHeight: 5 ,
 	//height: 5 ,
+	blurLeftPadding: '^;  ' ,
+	focusLeftPadding: '^;^R> ' ,
+	disabledLeftPadding: '^;  ' ,
+	paddingHasMarkup: true ,
 	multiLineItems: true ,
 	buttonEvenBlurAttr: { bgColor: '@dark-gray' , color: 'white' , bold: true } ,
 	buttonKeyBindings: {
@@ -112,18 +112,7 @@ var columnMenu = new termkit.ColumnMenu( {
 	]
 } ) ;
 
-
-
-var border = new termkit.Border( {
-	parent: columnMenu ,
-	shadow: true ,
-	//shadowAttr: { bgColor: 'black' } ,
-	//shadowAttr: { bgColor: 'blue' } ,
-	//shadowChar: '?' ,
-} ) ;
-
-
-var submitCount = 0 , focusCount = 0 ;
+let submitCount = 0 , focusCount = 0 ;
 
 function onSubmit( buttonValue , action ) {
 	//console.error( 'Submitted: ' , value ) ;
