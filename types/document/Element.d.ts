@@ -1,7 +1,7 @@
 import EventEmitter from 'nextgen-events'
 import ScreenBuffer from '../ScreenBuffer'
 
-type Bindings = Record<string, string>;
+type KeyBindings = Record<string, string>;
 
 interface Attr {
     bgColor: string,
@@ -164,7 +164,11 @@ declare class Element extends EventEmitter {
         fn?: (coords: CoordsOptions) => void,
         options?: EventEmitter.AddListenerOptions): this;
     on(eventName: "submit",
-        fn?: (value: string) => void,
+        fn?: (value: string, ...args: any[]) => void,
         options?: EventEmitter.AddListenerOptions): this;
+    on(eventName: "itemFocus",
+        fn?: (value: string, ...args: any[]) => void,
+        options?: EventEmitter.AddListenerOptions): this;
+
 
 }

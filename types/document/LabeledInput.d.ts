@@ -1,5 +1,5 @@
 import { EditableTextBox } from "./EditableTextBox";
-import { Element, Bindings, ElementOptions, ScrollableOptions, Attr } from "./Element";
+import { Element, KeyBindings, ElementOptions, ScrollableOptions, Attr } from "./Element";
 
 interface LabeledInputOptions extends ElementOptions, ScrollableOptions {
     hiddenContent: boolean;
@@ -16,7 +16,7 @@ interface LabeledInputOptions extends ElementOptions, ScrollableOptions {
     textAttr: Partial<Attr>;
     voidAttr: Partial<Attr>;
     emptyAttr: Partial<Attr>;
-    keyBindings: Bindings;
+    keyBindings: KeyBindings;
     type: string;
     noDraw: boolean;
     allowNewLine: boolean;

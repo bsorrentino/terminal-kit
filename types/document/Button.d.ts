@@ -1,4 +1,4 @@
-import { Bindings, Attr } from "./Element";
+import { KeyBindings, Attr } from "./Element";
 import { TextOptions, Text } from "./Text";
 
 interface ButtonOptions extends TextOptions {
@@ -47,8 +47,8 @@ interface ButtonOptions extends TextOptions {
     disabled: boolean;
     submitted: any;
     submitOnce: boolean;
-    keyBindings: Bindings;
-    actionKeyBindings: Bindings;
+    keyBindings: KeyBindings;
+    actionKeyBindings: KeyBindings;
     noDraw: boolean;
 }
 

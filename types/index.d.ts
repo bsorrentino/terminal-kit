@@ -45,8 +45,11 @@ export {
 
 // Documement Objects
 export * from './document/AnimatedText'
+export * from './document/BaseMenu'
+export * from './document/Border'
 export * from './document/Box'
 export * from './document/Button'
+export * from './document/ColumnMenu'
 export * from './document/Container'
 export * from './document/Document'
 export * from './document/EditableTextBox'

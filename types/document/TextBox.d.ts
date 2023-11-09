@@ -1,9 +1,9 @@
-import { Element, ElementOptions, ScrollableOptions, Attr } from "./Element";
+import { Element, ElementOptions, ScrollableOptions, Attr, KeyBindings } from "./Element";
 import { Slider } from "./Slider";
 
 interface TextBoxOptions extends ElementOptions, ScrollableOptions {
 
-    keyBindings?: any;
+    keyBindings?: KeyBindings;
     textAttr: Partial<Attr>;
     altTextAttr: Partial<Attr>;
     voidAttr: Partial<Attr>;
