@@ -3,6 +3,14 @@ import ScreenBuffer from '../ScreenBuffer'
 
 type KeyBindings = Record<string, string>;
 
+type FocusType =    'delegate' | 
+                    'select' | 
+                    'cycle' | 
+                    'backCycle' | 
+                    'clear' |
+                    'hover' |
+                    'direct'
+
 interface Attr {
     bgColor: string,
     color: string,
@@ -165,6 +173,9 @@ declare class Element extends EventEmitter {
         options?: EventEmitter.AddListenerOptions): this;
     on(eventName: "submit",
         fn?: (value: string, ...args: any[]) => void,
+        options?: EventEmitter.AddListenerOptions): this;
+    on(eventName: "focus",
+        fn?: (focus: boolean, type: FocusType) => void,
         options?: EventEmitter.AddListenerOptions): this;
     on(eventName: "itemFocus",
         fn?: (value: string, ...args: any[]) => void,

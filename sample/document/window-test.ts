@@ -28,22 +28,11 @@ const window = new termkit.Window( {
 } ) ;
 
 
-const content = () => { 
-	let result =  [
-		'This is the window content...' ,
-		'Second line of content...' ,
-		'Third line of content...'
-	];
-
-	for ( let i = 4 ; i <= 30 ; i ++ ) { 
-		result.push( `${i}th line of content...` ) ; 
-	}
-	return result ;
-}
+const content = Array.from( { length: 30 } ).map( ( _ , i ) => `${i}th line of content...` ) ;
 
 new termkit.Text( {
 	parent: window ,
-	content: content(),
+	content: content,
 	attr: { color: 'green' , italic: true }
 } ) ;
 

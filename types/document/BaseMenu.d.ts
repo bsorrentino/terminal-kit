@@ -23,7 +23,7 @@ interface BaseMenuOptions extends ElementOptions {
     previousPage: any;
     nextPage: any;
     master: any;
-    separator: any;
+    separator: string;
     submenu: boolean;
     isSubmenu: boolean;
 
