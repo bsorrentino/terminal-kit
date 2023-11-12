@@ -97,8 +97,6 @@ const output = new termkit.TextBox({
 	autoWidth: 1
 });
 
-
-
 term.on( 'key',  (key:string) => {
 		
 	switch( key )
@@ -238,13 +236,12 @@ function createMenu() {
 		}
 		else {
 			commandsWindow = createCommands();
-			commandsWindow.on( "focus", ( focus:boolean , type:FocusType ) => {
-				_log( `${focus} - ${type}` )
-				if( !focus && type === 'select') {
-					commandsWindow!.destroy()
-					commandsWindow = null
+			commandsWindow.on( "clickOut", (...args: unknown[] ) => {
+				_log( `${args} - hasFocus: ${commandsWindow!.hasFocus}`  )
+				if( commandsWindow && !commandsWindow.hasFocus ) {
+					commandsWindow.destroy()
 				}
-			})	
+			});
 			document.giveFocusTo( commandsWindow )
 		}
 	})
