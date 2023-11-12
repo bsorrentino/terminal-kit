@@ -17,6 +17,12 @@ interface Attr {
     bold: boolean,
     italic: boolean,
     dim: boolean
+    styleReset: boolean;
+    underline: boolean;
+    blink: boolean;
+    inverse: boolean;
+    hidden: boolean;
+    strike: boolean;    
 }
 
 interface ScrollableOptions {
@@ -162,24 +168,27 @@ declare class Element extends EventEmitter {
     descendantDraw(isSubcall: any): this;
     ascendantDraw(): this;
     drawCursor(): this;
-    bindKey(key: any, action: any): void;
-    getKeyBinding(key: any): string;
-    getKeyBindings(key: any): Record<string,string>;
+    bindKey(key: string, action: string): void;
+    getKeyBinding(key: string): string;
+    getKeyBindings(key: string): KeyBindings;
     getActionBinding(action: any, ui?: boolean): any[];
     getValue(): unknown;
-    // setValue(): undefined;
+    
     on(eventName: "parentResize",
         fn?: (coords: CoordsOptions) => void,
         options?: EventEmitter.AddListenerOptions): this;
     on(eventName: "submit",
-        fn?: (value: string, ...args: any[]) => void,
+        fn?: (value: string, ...args: unknown[]) => void,
         options?: EventEmitter.AddListenerOptions): this;
     on(eventName: "focus",
         fn?: (focus: boolean, type: FocusType) => void,
         options?: EventEmitter.AddListenerOptions): this;
     on(eventName: "itemFocus",
-        fn?: (value: string, ...args: any[]) => void,
+        fn?: (value: string, ...args: unknown[]) => void,
         options?: EventEmitter.AddListenerOptions): this;
-
+    on(eventName: "clickOut",
+        fn?: (...args: unknown[]) => void,
+        options?: EventEmitter.AddListenerOptions): this;
+        
 
 }
