@@ -49,22 +49,28 @@ interface ElementOptions extends CoordsOptions {
 
     outputDst: ScreenBuffer;
     childId: any;
+
     autoWidth: number;
+    autoHeight: number;
+
     strictInline: any;
+
     outputY: number;
+    outputX: number;
+
     disabled: any;
     interceptTempZIndex: any;
-    outputX: number;
     label: string;
-    autoHeight: number;
-    value: any;
+    value: unknown;
     hidden: boolean;
     shortcuts?: any[];
     inlineTerm: any | null;
-    outputHeight: any;
+
+    outputHeight: number;
+    outputWidth: number;
+
     def: any | null;
     key: any | null;
-    outputWidth: any;
 
     // z-index
     z: number;
