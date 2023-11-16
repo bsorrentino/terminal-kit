@@ -1,9 +1,13 @@
+import { Container, ContainerOptions } from './Container'
 import { Element } from './Element'
 
-export declare class Document {
+interface DocumentOptions extends ContainerOptions {
+}
+
+export declare class Document extends Container {
     elements: Record<string, Element>
     
-    constructor(options?: any);
+    constructor(options: Partial<DocumentOptions>);
 
     destroy(isSubDestroy: any, noDraw?: boolean): void;
     assignId(element: any, id: any): void;
